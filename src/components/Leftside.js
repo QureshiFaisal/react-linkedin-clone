@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-function Main() {
+import { connect } from "react-redux";
+function Leftside(props) {
   return (
     <Container>
       <ArtCard>
@@ -8,7 +9,9 @@ function Main() {
           <CardBackground />
           <a>
             <Photo />
-            <Link>Welcome, there!</Link>
+            <Link>
+              Welcome, {props.user ? props.user.displayName : "hello"}!
+            </Link>
           </a>
           <a>
             <AddPhotoText>Add a photo</AddPhotoText>
@@ -62,7 +65,6 @@ const ArtCard = styled.div`
   border: none;
   box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
 `;
-export default Main;
 
 const UserInfo = styled.div``;
 const CardBackground = styled.div`
@@ -181,3 +183,11 @@ const CommunityCard = styled(ArtCard)`
     }
   }
 `;
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+
+export default connect(mapStateToProps)(Leftside);

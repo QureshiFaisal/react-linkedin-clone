@@ -3,8 +3,15 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import Header from "./components/Header";
+import { useEffect } from "react";
+import { getUserAuth } from "./actions";
+import { connect } from "react-redux";
+import PostModal from "./components/PostModal";
 
-function App() {
+function App(props) {
+  useEffect(() => {
+    getUserAuth();
+  }, []);
   return (
     <div className="App">
       <Routes>
@@ -13,6 +20,7 @@ function App() {
           path="/home"
           element={
             <>
+              {/* <PostModal /> */}
               <Header />
               <Home />
             </>
@@ -23,4 +31,12 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  getUserAuth: () => dispatch(getUserAuth()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

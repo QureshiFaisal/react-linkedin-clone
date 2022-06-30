@@ -42,6 +42,48 @@ function Main() {
             ...
           </button>
         </SharedActor>
+        <Description>Description</Description>
+        <SharedImage>
+          <a>
+            <img src="/images/detail7.jpeg" alt="shared_image" />
+          </a>
+        </SharedImage>
+        <SocialCounts>
+          <li>
+            <button>
+              <img
+                src="https://static-exp1.licdn.com/sc/h/d310t2g24pvdy4pt1jkedo4yb"
+                alt=""
+              />
+              <img
+                src="https://static-exp1.licdn.com/sc/h/7fx9nkd7mx8avdpqm5hqcbi97"
+                alt=""
+              />
+              <span>75</span>
+            </button>
+          </li>
+          <li>
+            <a>comments</a>
+          </li>
+        </SocialCounts>
+        <SocialActions>
+          <button>
+            <img src="/images/like-icon.svg" alt="" />
+            <span>Send</span>
+          </button>
+          {/* <button>
+            <img src="/images/comment-icon.svg" alt="" />
+            <span>Comment</span>
+          </button> */}
+          <button>
+            <img src="/images/share-icon.svg" alt="" />
+            <span>Share</span>
+          </button>
+          <button>
+            <img src="/images/send-icon.svg" alt="" />
+            <span>Send</span>
+          </button>
+        </SocialActions>
       </Article>
     </Container>
   );
@@ -164,6 +206,82 @@ const SharedActor = styled.div`
     border: none;
     outline: none;
     background: transparent;
+  }
+`;
+
+const Description = styled.div`
+padding: 0 16px;
+overflow: hidden;
+color: rgba(0,0,0,0.9) 
+font-size: 14px;
+text-align: left
+`;
+const SharedImage = styled.div`
+margin-top: 8px;
+widht: 100%;
+display:block;
+position: relative;
+background-color: #f9fafb;
+
+img{
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+}`;
+
+const SocialCounts = styled.ul`
+  line-height: 1.3;
+  display: flex;
+  align-items: flex-start;
+  overflow: auto;
+  margin: 0 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9efdf;
+  color: rgba(0, 0, 0, 0.6);
+  list-style: none;
+  li {
+    margin-right: 5px;
+    font-size: 12px;
+    button {
+      display: flex;
+      border: none;
+      color: rgba(0, 0, 0, 0.6);
+      background: transparent;
+      span {
+        padding-left: 5px;
+      }
+    }
+  }
+`;
+
+const SocialActions = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 4px 12px;
+  min-height: 40px;
+  padding-bottom: 5px;
+  button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    span {
+      margin-left: 4px;
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 14px;
+    }
+  }
+  button.active {
+    span {
+      color: #0a66c2;
+      font-weight: 600;
+    }
+    svg {
+      fill: #0a66c2;
+    }
   }
 `;
 export default Main;

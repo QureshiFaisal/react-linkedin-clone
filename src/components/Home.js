@@ -4,6 +4,7 @@ import React from "react";
 import Main from "./Main";
 import Rightside from "./Rightside";
 import Leftside from "./Leftside";
+import { connect } from "react-redux";
 
 function Home() {
   return (
@@ -76,4 +77,11 @@ const Layout = styled.div`
     padding: 0 5px;
   }
 `;
-export default Home;
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+
+export default connect(mapStateToProps)(Home);
