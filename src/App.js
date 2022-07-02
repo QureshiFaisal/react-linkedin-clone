@@ -20,7 +20,7 @@ function App(props) {
           path="/home"
           element={
             <>
-              {/* <PostModal /> */}
+              <PostModal />
               <Header />
               <Home />
             </>

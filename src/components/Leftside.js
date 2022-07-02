@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 function Leftside(props) {
@@ -40,7 +40,7 @@ function Leftside(props) {
         <a>
           <span>
             Events
-            <img src="/images/plus-icons.svg" alt="" />
+            <img src="/images/event-icon.svg" alt="" />
           </span>
         </a>
         <a>
