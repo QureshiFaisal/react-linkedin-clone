@@ -5,23 +5,28 @@ import Main from "./Main";
 import Rightside from "./Rightside";
 import Leftside from "./Leftside";
 import { connect } from "react-redux";
+import { Navigate } from "react-router-dom";
 
-function Home() {
+function Home(props) {
   return (
     <Container>
-      <Section>
-        <h5>
-          <a>Hiring in a hurry? -</a>
-        </h5>
-        <p>
-          Find talented pros in record time with Upwork and keep business moving
-        </p>
-      </Section>
-      <Layout>
-        <Leftside />
-        <Main />
-        <Rightside />
-      </Layout>
+      {!props.user && <Navigate to="/" />}
+      <Content>
+        <Section>
+          <h5>
+            <a>Hiring in a hurry? -</a>
+          </h5>
+          <p>
+            Find talented pros in record time with Upwork and keep business
+            moving
+          </p>
+        </Section>
+        <Layout>
+          <Leftside />
+          <Main />
+          <Rightside />
+        </Layout>
+      </Content>
     </Container>
   );
 }
